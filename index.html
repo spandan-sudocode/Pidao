@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pidao - Friendly Motivation Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    [data-theme="default"] {
+      --bg: linear-gradient(135deg, #d9a7c7 0%, #fffcdc 100%);
+      --primary: #d63384;
+      --secondary: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+      --text: #1e293b;
+      --logo-color: #d63384;
+    }
+    [data-theme="dark"] {
+      --bg: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      --primary: #ffd700;
+      --secondary: linear-gradient(90deg, #00c6ff, #0072ff);
+      --text: #000000;
+      --logo-color: #ffd700;
+    }
+    [data-theme="sunset"] {
+      --bg: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      --primary: #e07a5f;
+      --secondary: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+      --text: #1f2937;
+      --logo-color: #e07a5f;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .header, .footer {
+      color: var(--text);
+    }
+    .pidao-logo {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--logo-color);
+    }
+    .btn-primary {
+      background-image: var(--primary);
+      background-color: var(--primary);
+      color: white;
+    }
+    .btn-secondary {
+      background-image: var(--secondary);
+      color: white;
+    }
+    .background-art {
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      background-position: center;
+      background-repeat: repeat;
+      background-size: auto;
+      opacity: 0.1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .big-logo {
+      font-size: 6rem;
+      font-weight: 900;
+      color: var(--logo-color);
+      text-align: center;
+      opacity: 0.05;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="font-sans relative">
+  <div class="background-art"></div>
+  <div class="big-logo">P</div>
+  <header class="header p-6 text-center text-4xl font-extrabold shadow">
+    <span class="pidao-logo">Pidao</span>
+  </header>
+
+  <div class="text-center my-4">
+    <label class="mr-2 font-semibold">Select Theme:</label>
+    <select onchange="changeTheme(this.value)" class="p-2 border rounded">
+      <option value="default">Inspire</option>
+      <option value="dark">Focus Mode</option>
+      <option value="sunset">Chill Sunset</option>
+    </select>
+  </div>
+
+  <main class="p-6 max-w-3xl mx-auto">
+    <section class="bg-white bg-opacity-90 p-6 rounded-xl shadow mb-6">
+      <h2 class="text-xl font-semibold mb-4">Send a Virtual Tap</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Sender's Name" class="w-full p-2 border rounded" />
+        <input type="text" placeholder="Recipient's Name" class="w-full p-2 border rounded" />
+        <textarea placeholder="Motivational Message (e.g. Get back to studying!)" class="w-full p-2 border rounded"></textarea>
+        <button type="button" class="btn-primary px-4 py-2 rounded hover:opacity-90">Send Tap (Free)</button>
+      </form>
+    </section>
+
+    <section class="bg-white bg-opacity-90 p-6 rounded-xl shadow mb-6">
+      <h2 class="text-xl font-semibold mb-4">Send a Real-Life Tap Agent</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Recipient Name" class="w-full p-2 border rounded" />
+        <input type="text" placeholder="Location (e.g. Library, Dorm Room 3B)" class="w-full p-2 border rounded" />
+        <input type="datetime-local" class="w-full p-2 border rounded" />
+        <textarea placeholder="What should the agent say?" class="w-full p-2 border rounded"></textarea>
+        <button type="button" class="btn-secondary px-4 py-2 rounded hover:opacity-90">Pay & Send Tap Agent ($10)</button>
+      </form>
+    </section>
+
+    <section class="bg-white bg-opacity-90 p-6 rounded-xl shadow mb-6">
+      <h2 class="text-xl font-semibold mb-4">Become a Tap Agent</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-2 border rounded" />
+        <input type="text" placeholder="City or Area" class="w-full p-2 border rounded" />
+        <textarea placeholder="Why do you want to motivate people?" class="w-full p-2 border rounded"></textarea>
+        <button type="button" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Apply as Agent</button>
+      </form>
+    </section>
+
+    <section class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-center">
+      <h2 class="text-xl font-semibold mb-2">Why Pidao?</h2>
+      <p class="mb-2">Motivation doesn't have to be boring. Pidao is your friendly nudge when your friends need a little push to do what's right — study, hydrate, or just focus.</p>
+      <p>Start tapping today!</p>
+    </section>
+  </main>
+
+  <footer class="footer text-center p-4 mt-6">
+    &copy; 2025 Pidao. All rights reserved.
+  </footer>
+
+  <script>
+    function changeTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  </script>
+</body>
+</html>
